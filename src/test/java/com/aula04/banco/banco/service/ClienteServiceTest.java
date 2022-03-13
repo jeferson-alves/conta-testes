@@ -1,6 +1,7 @@
 package com.aula04.banco.banco.service;
 
 import com.aula04.banco.banco.dto.RequestCliente;
+import com.aula04.banco.banco.dto.RequestConta;
 import com.aula04.banco.banco.dto.RequestDeposito;
 import com.aula04.banco.banco.model.BancoCliente;
 import com.aula04.banco.banco.model.Cliente;
@@ -104,6 +105,7 @@ public class ClienteServiceTest {
 
             verify(bancoCliente).adiciona(clienteArgumentCaptor.capture());
 
+
             assertEquals(requestCliente.getNome(), clienteArgumentCaptor.getValue().getNome());
             assertNotNull(clienteArgumentCaptor.getValue().getId());
     }
@@ -187,7 +189,7 @@ public class ClienteServiceTest {
 
     @Test
     public void deposito() throws Exception {
-        Conta conta = new Conta(
+        RequestConta requestConta = new RequestConta(
                 UUID.randomUUID(),
                 1,
                 2,
@@ -195,32 +197,38 @@ public class ClienteServiceTest {
                 1000.0
         );
 
-        Cliente cliente = new Cliente(
+        RequestCliente requestCliente = new RequestCliente(
                 UUID.randomUUID(),
                 "jeferson",
                 "jeferson@email.com",
                 "1234",
-                Arrays.asList(conta)
+                Arrays.asList(requestConta)
         );
 
-        RequestCliente requestClienteAtualiza = new RequestCliente(   "cinthia",
-                "cinthiaqcarsoso@teste.com",
-                "44934586719",
-                "54353",
-                3
-        );
+        clienteService.cadastraCliente(requestCliente);
 
-        clienteArgumentCaptor.getValue().getNome();
+//        System.out.println(cliente.getId());
+
+//        RequestCliente requestClienteAtualiza = new RequestCliente(   "cinthia",
+//                "cinthiaqcarsoso@teste.com",
+//                "44934586719",
+//                "54353",
+//                3
+//        );
+
+
 
         // atualizar saldo
 
-//        UUID id = UUID.randomUUID();
+        UUID id = cliente.getId();
 
-//        UUID id =  clienteService.detalhesCliente(cliente.getId());
 //
-//        RequestDeposito requestDeposito = new RequestDeposito(100.0, id);
+        RequestDeposito requestDeposito = new RequestDeposito(100.0, id);
+
+        System.out.println(conta.getSaldo() + " saldo");
 //
-//        when(bancoCliente.deposita(id, requestDeposito);).thenReturn(cliente);
+//        when(bancoCliente.deposita(id, requestDeposito).thenReturn(cliente);
+//        when(bancoCliente.atualizaCliente(id, requestClienteAtualiza)).thenReturn(cliente);
 //
 //        Cliente clienteAtualizado = clienteService.atualizaCliente(id, requestClienteAtualiza);
 //

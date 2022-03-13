@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.aula04.banco.banco.service.ClienteServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-03-13T22:18:04" hostname="NOTEBOOK-2" time="0.897">
+<testsuite name="com.aula04.banco.banco.service.ClienteServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-03-13T22:36:41" hostname="NOTEBOOK-2" time="0.811">
   <properties/>
-  <testcase name="cadastraCliente()" classname="com.aula04.banco.banco.service.ClienteServiceTest" time="0.897"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="deposito()" classname="com.aula04.banco.banco.service.ClienteServiceTest" time="0.811"/>
+  <system-out><![CDATA[1000.0 saldo
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
